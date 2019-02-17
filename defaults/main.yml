@@ -1,0 +1,65 @@
+---
+
+# Agent
+telegraf_agent_flush_interval: 10s
+telegraf_agent_interval: 10s
+
+# Outputs
+telegraf_output_type: influxdb
+telegraf_output_host: localhost
+telegraf_output_port: 8086
+
+# Inputs
+telegraf_cpu_enabled: true
+telegraf_mem_enabled: true
+telegraf_conntrack_enabled: false
+telegraf_swap_enabled: false
+telegraf_system_enabled: false
+telegraf_kernel_enabled: false
+telegraf_processes_enabled: false
+
+telegraf_internal_enabled: false
+telegraf_internal_collect_memstats: 'false'
+
+telegraf_net_enabled: true
+telegraf_net_fieldpass:
+  - 'bytes_*'
+
+telegraf_diskio_enabled: false
+telegraf_diskio_devices: []
+
+telegraf_disk_enabled: true
+telegraf_disk_mount_points:
+  - '/'
+
+telegraf_dns_query_enabled: false
+telegraf_dns_query_network: udp
+telegraf_dns_query_record_type: A
+telegraf_dns_query_port: 53
+telegraf_dns_query_servers:
+  - 127.0.0.1
+telegraf_dns_query_domains:
+  - '.'
+
+telegraf_unbound_enabled: false
+telegraf_unbound_use_sudo: 'true'
+telegraf_unbound_thread_as_tag: 'true'
+
+telegraf_nginx_enabled: false
+telegraf_nginx_urls:
+  - http://127.0.0.1/status
+
+telegraf_docker_enabled: false
+telegraf_docker_endpoint: unix:///var/run/docker.sock
+telegraf_docker_gather_services: 'false'
+telegraf_docker_perdevice: 'true'
+telegraf_docker_total: 'true'
+telegraf_docker_container_name_exclude: [""]
+
+telegraf_influxdb_enabled: false
+telegraf_influxdb_urls:
+  - http://localhost:8086/debug/vars
+
+telegraf_x509_cert_enabled: false
+telegraf_x509_cert_sources: []
+

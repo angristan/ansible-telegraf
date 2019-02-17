@@ -1,0 +1,99 @@
+[agent]
+  hostname = "{{ telegraf_agent_hostname | default(inventory_hostname) }}"
+  flush_interval = "{{ telegraf_agent_flush_interval }}"
+  interval = "{{ telegraf_agent_interval }}"
+
+[[outputs.{{ telegraf_output_type }}]]
+  database = "{{ telegraf_output_database }}"
+  urls = [ "http://{{ telegraf_output_host }}:{{ telegraf_output_port }}" ]
+  username = "{{ telegraf_output_username}}"
+  password = "{{ telegraf_output_password }}"
+
+{% if telegraf_cpu_enabled %}
+[[inputs.cpu]]
+{% endif -%}
+
+{% if telegraf_mem_enabled %}
+[[inputs.mem]]
+{% endif -%}
+
+{% if telegraf_swap_enabled %}
+[[inputs.swap]]
+{% endif -%}
+
+{% if telegraf_system_enabled %}
+[[inputs.system]]
+{% endif -%}
+
+{% if telegraf_kernel_enabled %}
+[[inputs.kernel]]
+{% endif -%}
+
+{% if telegraf_diskio_enabled %}
+[[inputs.diskio]]
+  devices = [{% for device in telegraf_diskio_devices %}"{{ device }}",{% endfor %}]
+{% endif -%}
+
+{% if telegraf_disk_enabled %}
+[[inputs.disk]]
+  mount_points = [{% for mount_point in telegraf_disk_mount_points %}"{{ mount_point }}",{% endfor %}]
+{% endif -%}
+
+{% if telegraf_processes_enabled %}
+[[inputs.processes]]
+{% endif -%}
+
+{% if telegraf_net_enabled %}
+[[inputs.net]]
+  fieldpass = [{% for fieldpass in telegraf_net_fieldpass %}"{{ fieldpass }}",{% endfor %}]
+{% endif -%}
+
+{% if telegraf_conntrack_enabled %}
+[[inputs.conntrack]]
+{% endif -%}
+
+{% if telegraf_dns_query_enabled %}
+[[inputs.dns_query]]
+  servers = [{% for server in telegraf_dns_query_servers %}"{{ server }}",{% endfor %}]
+  network = "{{ telegraf_dns_query_network }}"
+  domains = [{% for domain in telegraf_dns_query_domains %}"{{ domain }}",{% endfor %}]
+  record_type = "{{ telegraf_dns_query_record_type }}"
+  port = {{ telegraf_dns_query_port }}
+{% endif -%}
+
+{% if telegraf_unbound_enabled %}
+[[inputs.unbound]]
+  use_sudo = {{ telegraf_unbound_use_sudo }}
+  thread_as_tag = {{ telegraf_unbound_thread_as_tag }}
+{% endif -%}
+
+{% if telegraf_internal_enabled %}
+[[inputs.internal]]
+  collect_memstats = {{ telegraf_internal_collect_memstats }}
+{% endif -%}
+
+{% if telegraf_nginx_enabled %}
+[[inputs.nginx]]
+  urls = [{% for url in telegraf_nginx_urls %}"{{ url }}",{% endfor %}]
+{% endif -%}
+
+{% if telegraf_docker_enabled %}
+[[inputs.docker]]
+  endpoint = "{{ telegraf_docker_endpoint }}"
+  gather_services = {{ telegraf_docker_gather_services }}
+  perdevice = {{ telegraf_docker_perdevice }}
+  total = {{ telegraf_docker_total }}
+  container_name_exclude = ["{% for container in telegraf_docker_container_name_exclude %}"{{ container }}",{% endfor %}"]
+{% endif -%}
+
+{% if telegraf_influxdb_enabled %}
+[[inputs.influxdb]]
+  urls = [{% for url in telegraf_influxdb_urls %}"{{ url }}",{% endfor %}]
+{% endif -%}
+
+{% if telegraf_x509_cert_enabled %}
+[[inputs.x509_cert]]
+  sources = [{% for source in telegraf_x509_cert_sources %}"{{ source }}",{% endfor %}]
+{% endif -%}
+
+
