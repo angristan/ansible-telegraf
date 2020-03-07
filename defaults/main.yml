@@ -12,11 +12,11 @@ telegraf_output_port: 8086
 # Inputs
 telegraf_cpu_enabled: true
 telegraf_mem_enabled: true
-telegraf_conntrack_enabled: false
-telegraf_swap_enabled: false
-telegraf_system_enabled: false
-telegraf_kernel_enabled: false
-telegraf_processes_enabled: false
+telegraf_conntrack_enabled: true
+telegraf_swap_enabled: true
+telegraf_system_enabled: true
+telegraf_kernel_enabled: true
+telegraf_processes_enabled: true
 
 telegraf_internal_enabled: false
 telegraf_internal_collect_memstats: 'false'
