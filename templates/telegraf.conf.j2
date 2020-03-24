@@ -11,6 +11,8 @@
 
 {% if telegraf_cpu_enabled %}
 [[inputs.cpu]]
+  totalcpu = true
+  percpu = false
 {% endif -%}
 
 {% if telegraf_mem_enabled %}
