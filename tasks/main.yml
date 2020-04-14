@@ -6,7 +6,7 @@
 
 - name: Add InfluxData APT repo
   apt_repository:
-    repo: "deb https://repos.influxdata.com/debian stretch stable"
+    repo: "deb https://repos.influxdata.com/debian {{ ansible_distribution_release }} stable"
     filename: influxdata
 
 - name: Install Telegraf
