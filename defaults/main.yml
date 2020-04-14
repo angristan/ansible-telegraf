@@ -66,3 +66,5 @@ telegraf_influxdb_urls:
 telegraf_x509_cert_enabled: false
 telegraf_x509_cert_sources: []
 
+telegraf_mysql_enabled: false
+telegraf_mysql_metric_version: 2

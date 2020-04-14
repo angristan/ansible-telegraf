@@ -102,4 +102,8 @@
   sources = [{% for source in telegraf_x509_cert_sources %}"{{ source }}",{% endfor %}]
 {% endif -%}
 
-
+{% if telegraf_mysql_enabled %}
+[[inputs.mysql]]
+  servers = [{% for url in telegraf_mysql_servers %}"{{ url }}",{% endfor %}]
+  metric_version = {{ telegraf_mysql_metric_version }}
+{% endif -%}
