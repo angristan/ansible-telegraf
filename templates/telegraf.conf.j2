@@ -66,7 +66,6 @@
 {% if telegraf_unbound_enabled %}
 [[inputs.unbound]]
   use_sudo = {{ telegraf_unbound_use_sudo }}
-  thread_as_tag = {{ telegraf_unbound_thread_as_tag }}
 {% endif -%}
 
 {% if telegraf_internal_enabled %}
@@ -77,6 +76,11 @@
 {% if telegraf_nginx_enabled %}
 [[inputs.nginx]]
   urls = [{% for url in telegraf_nginx_urls %}"{{ url }}",{% endfor %}]
+{% endif -%}
+
+{% if telegraf_phpfpm_enabled %}
+[[inputs.phpfpm]]
+  urls = [{% for url in telegraf_phpfpm_urls %}"{{ url }}",{% endfor %}]
 {% endif -%}
 
 {% if telegraf_docker_enabled %}

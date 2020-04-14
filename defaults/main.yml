@@ -43,11 +43,14 @@ telegraf_dns_query_domains:
 
 telegraf_unbound_enabled: false
 telegraf_unbound_use_sudo: 'true'
-telegraf_unbound_thread_as_tag: 'true'
 
 telegraf_nginx_enabled: false
 telegraf_nginx_urls:
   - http://127.0.0.1/status
+
+telegraf_phpfpm_enabled: false
+telegraf_phpfpm_urls:
+  - fcgi://localhost:9000/status
 
 telegraf_docker_enabled: false
 telegraf_docker_endpoint: unix:///var/run/docker.sock
