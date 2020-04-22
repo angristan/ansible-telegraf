@@ -1,7 +1,5 @@
 # Ansible role for Telegraf
 
-[![CircleCI](https://circleci.com/gh/angristan/ansible-telegraf.svg?style=svg)](https://circleci.com/gh/angristan/ansible-telegraf)
-
 This is a simple role that will install Telegraf from the InfluxDB APT repo and configure it.
 
 All the configuration is done with the `telegraf.conf.j2` template.
