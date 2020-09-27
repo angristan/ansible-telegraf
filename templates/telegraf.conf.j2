@@ -111,4 +111,5 @@
 {% if telegraf_prometheus_enabled %}
 [[inputs.prometheus]]
   urls = [{% for url in telegraf_prometheus_exporters %}"{{ url }}",{% endfor %}]
+  metric_version = {{ telegraf_prometheus_metric_version }}
 {% endif -%}

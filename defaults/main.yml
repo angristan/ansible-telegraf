@@ -1,5 +1,4 @@
 ---
-
 # Agent
 telegraf_agent_flush_interval: 10s
 telegraf_agent_interval: 10s
@@ -57,7 +56,7 @@ telegraf_docker_endpoint: unix:///var/run/docker.sock
 telegraf_docker_gather_services: 'false'
 telegraf_docker_perdevice: 'true'
 telegraf_docker_total: 'true'
-telegraf_docker_container_name_exclude: [""]
+telegraf_docker_container_name_exclude: ['']
 
 telegraf_influxdb_enabled: false
 telegraf_influxdb_urls:
@@ -68,3 +67,6 @@ telegraf_x509_cert_sources: []
 
 telegraf_mysql_enabled: false
 telegraf_mysql_metric_version: 2
+
+telegraf_prometheus_enabled: false
+telegraf_prometheus_metric_version: 1
