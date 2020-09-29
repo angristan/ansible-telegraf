@@ -1,12 +1,11 @@
 ---
-
 - name: Add InfluxData APT key
   apt_key:
     url: https://repos.influxdata.com/influxdb.key
 
 - name: Add InfluxData APT repo
   apt_repository:
-    repo: "deb https://repos.influxdata.com/debian {{ ansible_distribution_release }} stable"
+    repo: 'deb https://repos.influxdata.com/debian {{ ansible_distribution_release }} stable'
     filename: influxdata
 
 - name: Install Telegraf
@@ -17,6 +16,7 @@
   template:
     src: telegraf.conf.j2
     dest: /etc/telegraf/telegraf.conf
+    mode: 0664
   notify: restart telegraf
 
 - name: Add telegraf sudo auth to use unbound-control
@@ -24,6 +24,7 @@
   copy:
     src: sudo-unbound
     dest: /etc/sudoers.d/telegraf-unbound
+    mode: 0644
 
 - name: Add telegraf user to docker group
   when: telegraf_docker_enabled
