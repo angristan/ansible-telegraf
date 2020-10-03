@@ -70,3 +70,7 @@ telegraf_mysql_metric_version: 2
 
 telegraf_prometheus_enabled: false
 telegraf_prometheus_metric_version: 1
+
+telegraf_redis_enabled: false
+telegraf_redis_servers:
+  - tcp://localhost:6379

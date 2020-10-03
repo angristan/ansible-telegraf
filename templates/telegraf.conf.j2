@@ -113,3 +113,8 @@
   urls = [{% for url in telegraf_prometheus_exporters %}"{{ url }}",{% endfor %}]
   metric_version = {{ telegraf_prometheus_metric_version }}
 {% endif -%}
+
+{% if telegraf_redis_enabled %}
+[[inputs.redis]]
+  servers = [{% for url in telegraf_redis_servers %}"{{ url }}",{% endfor %}]
+{% endif -%}
