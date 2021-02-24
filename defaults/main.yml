@@ -2,6 +2,7 @@
 # Agent
 telegraf_agent_flush_interval: 10s
 telegraf_agent_interval: 10s
+telegraf_agent_round_interval: true
 
 # Outputs
 telegraf_output_type: influxdb

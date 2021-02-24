@@ -2,6 +2,7 @@
   hostname = "{{ telegraf_agent_hostname | default(inventory_hostname) }}"
   flush_interval = "{{ telegraf_agent_flush_interval }}"
   interval = "{{ telegraf_agent_interval }}"
+  round_interval = "{{ telegraf_agent_interval }}"
 
 [[outputs.{{ telegraf_output_type }}]]
   database = "{{ telegraf_output_database }}"
