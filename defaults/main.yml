@@ -17,6 +17,7 @@ telegraf_swap_enabled: true
 telegraf_system_enabled: true
 telegraf_kernel_enabled: true
 telegraf_processes_enabled: true
+telegraf_procstat_enabled: false
 
 telegraf_internal_enabled: false
 telegraf_internal_collect_memstats: 'false'

@@ -32,6 +32,11 @@
 [[inputs.kernel]]
 {% endif -%}
 
+{% if telegraf_procstat_enabled %}
+[[inputs.procstat]]
+  exe = "."
+{% endif -%}
+
 {% if telegraf_diskio_enabled %}
 [[inputs.diskio]]
   devices = [{% for device in telegraf_diskio_devices %}"{{ device }}",{% endfor %}]
